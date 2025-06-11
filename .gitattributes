@@ -1,2 +1,15 @@
-*.js linguist-detectable=false
-*.css linguist-detectable=false
+# JavaScript ve CSS’i tamamen gizle
+*.js     linguist-detectable=false
+*.css    linguist-detectable=false
+
+# HTML, JSON, YAML gibi diğer dilleri de isterseniz kapatın
+*.html   linguist-detectable=false
+*.json   linguist-detectable=false
+*.yml    linguist-detectable=false
+*.yaml   linguist-detectable=false
+
+# Blade dosyalarını açıkça PHP olarak işaretle
+*.blade.php linguist-language=PHP
+
+# Eğer public dizinindeki vendor ya da derlenmiş dosyaları tamamen hariç tutmak isterseniz
+/vendor/** linguist-vendored=true
