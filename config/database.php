@@ -28,14 +28,14 @@
         |
         */
         'connections' => [
-            'sqlite' => [
+            'sqlite'           => [
                 'driver'                  => 'sqlite',
                 'url'                     => env('DATABASE_URL'),
                 'database'                => env('DB_DATABASE', database_path('database.sqlite')),
                 'prefix'                  => '',
                 'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             ],
-            'mysql'  => [
+            'mysql'            => [
                 'driver'         => 'mysql',
                 'url'            => env('DATABASE_URL'),
                 'host'           => env('DB_HOST', '127.0.0.1'),
@@ -54,7 +54,26 @@
                     PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
                 ]) : [],
             ],
-            'pgsql'  => [
+            'mysql-production' => [
+                'driver'         => 'mysql',
+                'url'            => env('DB_PRODUCTION_URL'),
+                'host'           => env('DB_PRODUCTION_HOST', '127.0.0.1'),
+                'port'           => env('DB_PRODUCTION_PORT', '3306'),
+                'database'       => env('DB_PRODUCTION_DATABASE', 'forge'),
+                'username'       => env('DB_PRODUCTION_USERNAME', 'forge'),
+                'password'       => env('DB_PRODUCTION_PASSWORD', 'forge'),
+                'unix_socket'    => env('DB_SOCKET', ''),
+                'charset'        => 'utf8mb4',
+                'collation'      => 'utf8mb4_unicode_ci',
+                'prefix'         => '',
+                'prefix_indexes' => true,
+                'strict'         => false,
+                'engine'         => "InnoDB",
+                'options'        => extension_loaded('pdo_mysql') ? array_filter([
+                    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                ]) : [],
+            ],
+            'pgsql'            => [
                 'driver'         => 'pgsql',
                 'url'            => env('DATABASE_URL'),
                 'host'           => env('DB_HOST', '127.0.0.1'),
@@ -68,7 +87,7 @@
                 'search_path'    => 'public',
                 'sslmode'        => 'prefer',
             ],
-            'sqlsrv' => [
+            'sqlsrv'           => [
                 'driver'         => 'sqlsrv',
                 'url'            => env('DATABASE_URL'),
                 'host'           => env('DB_HOST', 'localhost'),
