@@ -34,7 +34,6 @@ return [
     "Kullanıcı Ekle" => "Kullanıcı Ekle",
     "Kullanıcı Güncelle" => "Kullanıcı Güncelle",
     "Kullanıcılar" => "Kullanıcılar",
-    "Merhaba" => "Merhaba",
     "Pasif" => "Pasif",
     "Profil" => "Profil",
     "Root" => "Root",
