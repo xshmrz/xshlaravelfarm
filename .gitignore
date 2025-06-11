@@ -3,6 +3,10 @@
 /public/build
 /public/hot
 /storage/*.key
+
+.env
+.env.backup
+.env.production
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -12,7 +16,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/
+
 # Project exclude paths
 /storage/app/
 /storage/debugbar/
