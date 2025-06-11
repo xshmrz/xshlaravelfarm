@@ -12,6 +12,3 @@
 
 # Blade dosyalarını açıkça PHP olarak işaretle
 *.blade.php linguist-language=PHP
-
-# Eğer public dizinindeki vendor ya da derlenmiş dosyaları tamamen hariç tutmak isterseniz
-/vendor/** linguist-vendored=true
