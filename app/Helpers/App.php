@@ -45,7 +45,7 @@
             return "https://unsplash.it/".$width."/".$height."?".rand(1000, 2000);
         }
         else {
-            if (!File::exists(public_path('assets/placeholder/'.$width.'x'.$height.".png"))) {
+            if (!File::exists(base_path('assets/placeholder/'.$width.'x'.$height.".png"))) {
                 $image = file_get_contents('https://dummyimage.com/'.$width.'x'.$height.'/CECECE/595959.png');
                 file_put_contents(public_path('assets/placeholder/'.$width.'x'.$height.'.png'), $image);
                 return 'assets/placeholder/'.$width.'x'.$height.".png";
