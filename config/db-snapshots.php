@@ -12,7 +12,7 @@
         /*
          * The directory where temporary files will be stored.
          */
-        'temporary_directory_path' => storage_path('app/laravel-db-snapshots/temp'),
+        'temporary_directory_path' => storage_path('db-snapshots'),
         /*
          * Create dump files that are gzipped
          */
