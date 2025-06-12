@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ config("app.locale") }}">
 @include("Site.Mobile.component-header")
 <body>
 <div id="loader">

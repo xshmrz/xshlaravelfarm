@@ -23,31 +23,22 @@
 						<div class="text-dark fw-bold">{{ auth_model()->full_name }}</div>
 						<div class="fw-bold">{{ auth_model()->location->parent_name }} / {{ auth_model()->location->name }}</div>
 					</div>
-					<div class="right">
-
-					</div>
+					<div class="right"></div>
 				</div>
-
 			</div>
 		</div>
 		<ul class="listview link-listview inset mt-2">
-            <li>
-                <a href="#">
-                    John Fonseca
-                </a>
-            </li>
-			<li>
-                <a href="#">
-                    Sophie Silverton
-                    <span class="text-muted">Text</span>
-                </a>
-            </li>
-			<li>
-                <a href="#">
-                    Frank Sjögren
-                    <span class="badge badge-primary">3</span>
-                </a>
-            </li>
+			@foreach(Field()->where([user_id => auth_model()->id])->get() as $field)
+				<li>
+	                <a href="{{ route("site.field.show",$field->id) }}">
+	                    <div>
+		                    <div>{{ $field->name }}</div>
+		                    <div class="text-muted">{{ $field->location->parent_name }} / {{ $field->location->name }}</div>
+	                    </div>
+		                <div></div>
+	                </a>
+	            </li>
+			@endforeach
 		</ul>
 	</div>
 @endsection
