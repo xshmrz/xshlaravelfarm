@@ -6,4 +6,7 @@
     class Controller extends BaseController {
         use AuthorizesRequests, ValidatesRequests;
         public array $data = [];
+        public function __construct() {
+            $this->data["appHeader"] = config("app.name");
+        }
     }
