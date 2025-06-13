@@ -1,8 +1,8 @@
 <?php
-    $appHeaderTitle      = trans("app.Tarlalar");
-    $appHeaderBackButton = false;
+    $field = Field()->find($id);
     # ->
-    $fieldDt = Field()->where([user_id => auth_model()->id])->get();
+    $appHeaderTitle      = $field->name;
+    $appHeaderBackButton = false;
 ?>
 @extends("Site.Mobile.layout")
 {{-- appMenuHeader --}}
@@ -12,50 +12,6 @@
 {{-- Main --}}
 @section("section-main")
 	<div id="appCapsule">
-		<ul class="listview link-listview inset mt-2 mb-2">
-			@foreach($fieldDt as $field)
-				<li>
-					<a href="{{ route("site.field.show", $field->id) }}">
-						<div>
-							<div>{{ $field->name }}</div>
-							<div class="text-muted">{{ $field->location->parent_name }} / {{ $field->location->name }}</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="{{ route("site.field.show", $field->id) }}">
-						<div>
-							<div>{{ $field->name }}</div>
-							<div class="text-muted">{{ $field->location->parent_name }} / {{ $field->location->name }}</div>
-						</div>
-					</a>
-				</li>
-			@endforeach
-		</ul>
-		<!-- Form Action Sheet -->
-		<div class="modal fade action-sheet {{ FieldMdlCreate }}" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">{{ trans("app.Tarla Ekle") }}</h5>
-					</div>
-					<div class="modal-body">
-						<div class="action-sheet-content">
-							<form class="{{ FieldFrmCreate }}">
-								{{ html()->input("hidden","user_id",auth_model()->id) }}
-								{{ pwa_input(trans("app.Tarla Adı"),html()->input("text","name")->class("form-control")) }}
-								{{ pwa_input(trans("app.İl"),html()->select("location_parent_id",Location()->findState()->pluck("name","id"))->placeholder(trans("app.Şehir Seç"))->data("location-select","state")->class("form-control custom-select")) }}
-								{{ pwa_input(trans("app.İl"),html()->select("location_id",[])->placeholder(trans("app.İlçe Seç"))->data("location-select","city")->class("form-control custom-select")) }}
-								<div class="form-group basic">
-									<button type="button" class="btn btn-primary btn-block btn-lg {{ FieldBtnCreate }}">{{ trans("app.Kaydet") }}</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Form Action Sheet -->
 	</div>
 	<script>
         $(function () {
@@ -99,7 +55,9 @@
 {{-- appMenuBottom --}}
 @section("section-main-appMenuBottom")
 	<div class="appBottomMenu">
+		<a href="javascript:void(0)" class="item"><div class="col"><i class="fe fe-check-circle fs-4"></i><strong>{{ trans("app.Takvim") }}</strong></div></a>
 		<a href="javascript:void(0)" class="item {{ FieldBtnMdlCreate }}"><div class="col"><div class="action-button large"><i class="fe fe-plus fs-4 text-white"></i></div></div></a>
+		<a href="javascript:void(0)" class="item"><div class="col"><i class="fe fe-settings fs-4"></i><strong>{{ trans("app.Ayarlar") }}</strong></div></a>
 	</div>
 @endsection
 
