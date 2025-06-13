@@ -1,20 +1,12 @@
 @extends("Site.Mobile.layout")
+{{-- Variables --}}
+<?php ?>
+{{-- appMenuHeader --}}
+@section("section-main-appMenuHeader")
+	@include("Site.Mobile.Component.appMenuHeader")
+@endsection
+{{-- Main --}}
 @section("section-main")
-	<div class="appHeader bg-primary text-light">
-		<div class="left">
-            <a href="javascript:void(0)" class="headerButton goBack">
-               <i class="fe fe-chevron-left fs-4"></i>
-            </a>
-		</div>
-		<div class="pageTitle">
-			<span>{{ config("app.name") }}</span>
-		</div>
-		<div class="right">
-			 <a href="javascript:void(0)" class="headerButton">
-               <i class="fe fe-user fs-4"></i>
-            </a>
-		</div>
-	</div>
 	<div id="appCapsule">
 		<div class="section header-card-section pt-1">
 			<div class="header-card">
@@ -41,4 +33,8 @@
 			@endforeach
 		</ul>
 	</div>
+@endsection
+{{-- appMenuBottom --}}
+@section("section-main-appMenuBottom")
+	@include("Site.Mobile.Component.appMenuBottom")
 @endsection
