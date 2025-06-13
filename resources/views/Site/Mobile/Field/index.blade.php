@@ -35,7 +35,7 @@
 						<div class="action-sheet-content">
 							<form>
 								{{ pwa_input(trans("app.Tarla Adı"),html()->input("text",name)->class("form-control")) }}
-								{{ pwa_input(trans("app.İl"),html()->input("text","state")->class("form-control")) }}
+								{{ pwa_input(trans("app.İl"),html()->select("state",Location()->findState()->pluck(name,id))->placeholder(trans("app.Şehir Seç"))->class("form-control custom-select")) }}
 								{{ pwa_input(trans("app.İlçe"),html()->input("text","city")->class("form-control")) }}
 								<div class="form-group basic">
 									<button type="button" class="btn btn-primary btn-block btn-lg" data-bs-dismiss="modal">{{ trans("app.Kaydet") }}</button>

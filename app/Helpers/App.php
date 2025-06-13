@@ -73,3 +73,4 @@
             )
             ->class('form-group basic');
     }
+
