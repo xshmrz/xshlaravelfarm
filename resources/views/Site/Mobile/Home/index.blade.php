@@ -1,6 +1,8 @@
+<?php
+    $appHeaderTitle      = config("app.name");
+    $appHeaderBackButton = false;
+?>
 @extends("Site.Mobile.layout")
-{{-- Variables --}}
-<?php ?>
 {{-- appMenuHeader --}}
 @section("section-main-appMenuHeader")
 	@include("Site.Mobile.Component.appMenuHeader")
@@ -19,19 +21,6 @@
 				</div>
 			</div>
 		</div>
-		<ul class="listview link-listview inset mt-2">
-			@foreach(Field()->where([user_id => auth_model()->id])->get() as $field)
-				<li>
-	                <a href="{{ route("site.field.show",$field->id) }}">
-	                    <div>
-		                    <div>{{ $field->name }}</div>
-		                    <div class="text-muted">{{ $field->location->parent_name }} / {{ $field->location->name }}</div>
-	                    </div>
-		                <div></div>
-	                </a>
-	            </li>
-			@endforeach
-		</ul>
 	</div>
 @endsection
 {{-- appMenuBottom --}}

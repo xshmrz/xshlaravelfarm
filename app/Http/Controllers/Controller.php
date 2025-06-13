@@ -7,6 +7,7 @@
         use AuthorizesRequests, ValidatesRequests;
         public array $data = [];
         public function __construct() {
-            $this->data["appHeader"] = config("app.name");
+            $this->data["appHeaderTitle"]      = config("app.name");
+            $this->data["appHeaderBackButton"] = true;
         }
     }

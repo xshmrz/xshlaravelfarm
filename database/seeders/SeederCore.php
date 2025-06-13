@@ -16,7 +16,7 @@
             $user->can_login_panel     = \EnumUserCanLoginPanel::No;
             $user->can_login_dashboard = \EnumUserCanLoginDashboard::Yes;
             $user->save();
-            for ($iUser = 0; $iUser < 10; $iUser++) {
+            for ($iUser = 3; $iUser < 10; $iUser++) {
                 $user              = User();
                 $user->location_id = fake()->randomElement($location);
                 $user->first_name  = fake()->firstName;
